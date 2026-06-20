@@ -1,2 +1,3 @@
-date_utc,sha256,predictions,ots
+snapshot_utc,sha256,predictions,ots
 2026-06-20,36de50f69fc6d25e31420b88707ab64dd81e82073c496155f66b9be2f9671830,166,data/track-2026-06-20.json.ots
+2026-06-20T06-16-15Z,f86d9744c0160013ea3c632e65ff115c9f0c0d8a3c8b54a499466aad1bce2806,166,data/track-2026-06-20T06-16-15Z.json.ots
