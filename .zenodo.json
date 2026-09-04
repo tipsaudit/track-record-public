@@ -1,0 +1,13 @@
+{
+  "title": "TipsAudit Public Track Record — football predictions, fair odds and closing-line value",
+  "upload_type": "dataset",
+  "description": "Daily, immutable snapshots of every football (soccer) 1X2 prediction published by TipsAudit, logged before kick-off with the sharp-market opening price, the devigged fair probability, the best soft-bookmaker price, the closing price, the closing-line value and the settled result; daily bookmaker-margin measurements across ~35 bookmakers; and the frozen specifications of pre-registered forward experiments. Every snapshot is SHA-256 listed in manifest.csv and anchored via OpenTimestamps.",
+  "creators": [{"name": "SIS CONSULTING L.L.C.", "affiliation": "TipsAudit"}],
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "keywords": ["sports betting", "football", "soccer", "closing line value", "bookmaker margin", "odds", "forecasting", "calibration", "open data"],
+  "related_identifiers": [
+    {"identifier": "https://tipsaudit.com/track-record", "relation": "isSupplementTo", "resource_type": "dataset"},
+    {"identifier": "https://tipsaudit.com/methodology", "relation": "isDocumentedBy", "resource_type": "publication-other"}
+  ]
+}

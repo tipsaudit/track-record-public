@@ -20,3 +20,23 @@ ots verify data/track-2026-06-20T07-40-00Z.json.ots # confirms it existed at tha
 
 Because the Git history and the OpenTimestamps proofs are external and append-only, no one —
 including TipsAudit — can rewrite a past record without it being detectable.
+
+## What is in `data/`
+
+- `track-<UTC>.json` — the full public prediction ledger at that moment (one object per prediction:
+  fixture, kick-off, sharp opening price, devigged fair probability, best soft price at detection,
+  closing price, closing-line value, result, units). `latest.json` is the most recent one.
+- `margins-<date>.json` — the bookmaker-margin index measured that day (~35 bookmakers, per league).
+- `TIPS-EXP-*.md` (+ `.ots`) — frozen specifications of pre-registered forward experiments.
+
+## Monthly checkpoints
+
+Once a month the current HEAD is tagged `vYYYY.MM` (see `CHANGELOG.md`). Tags are citable
+pointers into the append-only history; they do not change any snapshot.
+
+## How to cite
+
+The data is published under CC-BY-4.0. A `CITATION.cff` is included, so GitHub's
+"Cite this repository" button gives you a ready-made reference. Methodology, calibration and
+the live experiments: https://tipsaudit.com/methodology · https://tipsaudit.com/calibration ·
+https://tipsaudit.com/strategies

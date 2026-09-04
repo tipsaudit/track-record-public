@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+title: "TipsAudit Public Track Record — football predictions, fair odds and closing-line value"
+message: "If you use this dataset, please cite it as below."
+type: dataset
+authors:
+  - name: "SIS CONSULTING L.L.C. (TipsAudit)"
+    website: "https://tipsaudit.com"
+repository-code: "https://github.com/tipsaudit/track-record-public"
+url: "https://tipsaudit.com/track-record"
+license: CC-BY-4.0
+keywords:
+  - sports betting
+  - football
+  - soccer
+  - closing line value
+  - bookmaker margin
+  - odds
+  - forecasting
+  - calibration
+  - open data
+abstract: >-
+  Daily, immutable snapshots of every football (soccer) 1X2 prediction published by
+  TipsAudit, logged before kick-off with the sharp-market (Pinnacle) opening price,
+  the devigged fair probability, the best soft-bookmaker price, the closing price,
+  the closing-line value and the settled result. Also includes daily bookmaker-margin
+  measurements across ~35 bookmakers and the frozen specifications of pre-registered
+  forward experiments. Every snapshot is SHA-256 listed in manifest.csv and anchored in
+  the Bitcoin blockchain via OpenTimestamps, so no record can be altered after the fact.
+date-released: "2026-06-20"
