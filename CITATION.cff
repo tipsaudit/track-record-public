@@ -19,11 +19,13 @@ keywords:
   - calibration
   - open data
 abstract: >-
-  Daily, immutable snapshots of every football (soccer) 1X2 prediction published by
-  TipsAudit, logged before kick-off with the sharp-market (Pinnacle) opening price,
+  Daily, append-only snapshots of every football (soccer) 1X2 prediction published by
+  TipsAudit, logged before kick-off (13 rows on 2026-07-25 were logged late and are marked),
+  with the sharp-market (Pinnacle) price recorded for the prediction,
   the devigged fair probability, the best soft-bookmaker price, the closing price,
   the closing-line value and the settled result. Also includes daily bookmaker-margin
   measurements across ~35 bookmakers and the frozen specifications of pre-registered
   forward experiments. Every snapshot is SHA-256 listed in manifest.csv and anchored in
-  the Bitcoin blockchain via OpenTimestamps, so no record can be altered after the fact.
+  the Bitcoin blockchain via OpenTimestamps, so any later change to a published snapshot is
+  detectable. Value flags before 26 September 2026 are a reconstruction (see CORRECTIONS.md).
 date-released: "2026-06-20"

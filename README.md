@@ -1,7 +1,9 @@
 # TipsAudit — Public Track Record
 
-Periodic, immutable snapshots of the TipsAudit prediction track record, published whenever the
-ledger changes (at least daily).
+Daily, append-only snapshots of the TipsAudit prediction track record, published once a day at
+04:40 UTC. A row is timestamped here before kick-off only if a snapshot was taken between its
+publication in the export and the match; predictions logged on match day, or whose Pinnacle price
+was added after logging, first appear after kick-off.
 
 Each `data/track-<UTC-timestamp>.json` is the exact public export from https://tipsaudit.com at
 that moment — snapshots are never overwritten, so every version stays separately auditable.
@@ -14,18 +16,24 @@ preserved in the internal ledger but were not externally timestamped before kick
 ## Verify a snapshot
 
 ```bash
-sha256sum data/track-2026-06-20T07-40-00Z.json      # must match manifest.csv
-ots verify data/track-2026-06-20T07-40-00Z.json.ots # confirms it existed at that time
+sha256sum data/track-2026-06-20T06-16-15Z.json      # must match manifest.csv
+ots verify data/track-2026-06-20T06-16-15Z.json.ots # confirms it existed at that time
 ```
 
-Because the Git history and the OpenTimestamps proofs are external and append-only, no one —
-including TipsAudit — can rewrite a past record without it being detectable.
+Because the Git history and the OpenTimestamps proofs are external and append-only, any later
+change to a published record is visible in the history. Changes we made on purpose are listed in
+[`CORRECTIONS.md`](CORRECTIONS.md).
 
 ## What is in `data/`
 
 - `track-<UTC>.json` — the full public prediction ledger at that moment (one object per prediction:
-  fixture, kick-off, sharp opening price, devigged fair probability, best soft price at detection,
-  closing price, closing-line value, result, units). `latest.json` is the most recent one.
+  fixture, kick-off, the pick, its probability and the Pinnacle price recorded for the prediction
+  (at logging or, if Pinnacle had no price then, the first quoted after logging and before kick-off, which can be written in after the match),
+  the closing price, closing-line value, result, units, and the value flag if there is one). `value_origin` says whether a flag was
+  recorded live when the site showed it (from 26 September 2026) or reconstructed afterwards
+  (before that date; see `CORRECTIONS.md`). The row `hash` covers only the prediction fields.
+  13 predictions logged on 2026-07-25 were written after kick-off (`logged_before_kickoff = 0`).
+  `latest.json` is the most recent one.
 - `margins-<date>.json` — the bookmaker-margin index measured that day (~35 bookmakers, per league).
 - `TIPS-EXP-*.md` (+ `.ots`) — frozen specifications of pre-registered forward experiments.
 
