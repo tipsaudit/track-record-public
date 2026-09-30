@@ -3,6 +3,16 @@
 Changes we made on purpose to published data, newest first. Every earlier snapshot stays in the
 Git history, so each change below can be checked by comparing the snapshots it names.
 
+## 2026-09-30 (erratum) — the 14 "late" predictions were logged before kick-off; void withdrawn
+
+The entry below was wrong about the 14 predictions. Until 27 July 2026 our pipeline stored
+`logged_at` in server time (UTC+3), not UTC. Read correctly, all 14 were logged 36 to 156 minutes
+before kick-off. Their void was withdrawn the same day and their results count again, as before.
+The 29 September note that called 13 of them "logged after kick-off" was wrong for the same reason.
+For every row logged before 2026-07-28, `logged_at_utc` is server time: subtract 3 hours.
+`logged_before_kickoff` now accounts for this. The part of the entry below about the 8 replay
+flags stands.
+
 ## 2026-09-30 — late predictions voided; replay flags on unplayed matches superseded
 
 - 14 predictions were written after kick-off by pipeline errors (13 on 2026-07-25, one on
