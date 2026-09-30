@@ -3,6 +3,16 @@
 Changes we made on purpose to published data, newest first. Every earlier snapshot stays in the
 Git history, so each change below can be checked by comparing the snapshots it names.
 
+## 2026-09-30 — TIPS-EXP-003: proposal step aligned with rule 1
+
+Rule 1 of `TIPS-EXP-003.md` covers every public value flag. The step that turns flags into
+proposals only picked up matches that already had a Pinnacle price when the prediction was logged.
+Flags on matches where Pinnacle opened later (shown on the site from the live Pinnacle price) were
+never proposed and are missing from the EXP-003 ledger — for example matches 7160 and 7648 on
+28 September 2026. From 30 September 2026 they are proposed like every other flag; rule 2 (fresh
+live fair price, otherwise skipped) applies to all of them. The frozen specification is unchanged,
+and the missed signals are not added retroactively.
+
 ## 2026-09-29 — fields added, claims made precise
 
 - Four fields were added at the end of every row: `value_origin` (`live` | `replay`),
