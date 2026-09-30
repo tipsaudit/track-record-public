@@ -3,6 +3,16 @@
 Changes we made on purpose to published data, newest first. Every earlier snapshot stays in the
 Git history, so each change below can be checked by comparing the snapshots it names.
 
+## 2026-09-30 — late predictions voided; replay flags on unplayed matches superseded
+
+- 14 predictions were written after kick-off by pipeline errors (13 on 2026-07-25, one on
+  2026-07-15; 13 of them are in this export). They are now void (`void_reason =
+  logged_after_kickoff`): their result is no longer scored and they are excluded from every figure.
+  The rows stay in the export with `logged_before_kickoff = 0`.
+- 8 value flags reconstructed on 2026-09-26 sat on matches that had not been played yet, which
+  blocked recording the live flag for those matches. They were withdrawn before kick-off (kept in
+  the database as `superseded_live`, not deleted), so those matches are flagged live like any other.
+
 ## 2026-09-30 — TIPS-EXP-003: proposal step aligned with rule 1
 
 Rule 1 of `TIPS-EXP-003.md` covers every public value flag. The step that turns flags into

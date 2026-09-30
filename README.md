@@ -32,7 +32,7 @@ change to a published record is visible in the history. Changes we made on purpo
   the closing price, closing-line value, result, units, and the value flag if there is one). `value_origin` says whether a flag was
   recorded live when the site showed it (from 26 September 2026) or reconstructed afterwards
   (before that date; see `CORRECTIONS.md`). The row `hash` covers only the prediction fields.
-  13 predictions logged on 2026-07-25 were written after kick-off (`logged_before_kickoff = 0`).
+  Predictions logged after kick-off by pipeline errors in July 2026 are void (`logged_before_kickoff = 0`).
   `latest.json` is the most recent one.
 - `margins-<date>.json` — the bookmaker-margin index measured that day (~35 bookmakers, per league).
 - `TIPS-EXP-*.md` (+ `.ots`) — frozen specifications of pre-registered forward experiments.

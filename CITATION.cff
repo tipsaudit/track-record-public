@@ -20,7 +20,7 @@ keywords:
   - open data
 abstract: >-
   Daily, append-only snapshots of every football (soccer) 1X2 prediction published by
-  TipsAudit, logged before kick-off (13 rows on 2026-07-25 were logged late and are marked),
+  TipsAudit, logged before kick-off (those logged late by pipeline errors in July 2026 are void),
   with the sharp-market (Pinnacle) price recorded for the prediction,
   the devigged fair probability, the best soft-bookmaker price, the closing price,
   the closing-line value and the settled result. Also includes daily bookmaker-margin

@@ -1,7 +1,7 @@
 # TipsAudit prediction dataset
 
 `tipsaudit-predictions-all.csv` — every football (soccer) 1X2 prediction TipsAudit has
-logged (all before kick-off except 13 rows on 2026-07-25), with the devigged fair
+logged (all before kick-off except 14 logged late in July 2026, marked void), with the devigged fair
 probabilities, the sharp-market (Pinnacle) price recorded for the prediction and the closing price, the best soft-bookmaker price per selection, the closing-line
 value, the settled result, and the measured market margin (min/avg across bookmakers) on
 each match. Regenerated monthly.
