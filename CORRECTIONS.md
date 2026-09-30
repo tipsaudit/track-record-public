@@ -3,6 +3,40 @@
 Changes we made on purpose to published data, newest first. Every earlier snapshot stays in the
 Git history, so each change below can be checked by comparing the snapshots it names.
 
+## 2026-09-30 — backtest repaired, realizable CLV published, flag rule v2, TIPS-EXP-005
+
+**Backtest repaired.** The reconstruction of value flags before 26 September 2026 had two
+fidelity errors. It evaluated prices when a quote arrived but stamped the flag at the next
+30-minute refresh, ignoring quotes that arrived in between. It also read `logged_at` before
+2026-07-28 as UTC, although it was server time (UTC+3). Both are fixed, and the backtest was
+re-run over the same matches: of 3,220 backtest flags, 2,919 are unchanged, 276 changed
+(price, bookmaker, selection or time), 25 were withdrawn (kept in the database as
+`flag-v1-old`, `replay_corrected`) and 3 were added. Changed rows have new seals; the previous
+values remain in earlier snapshots.
+
+**Realizable CLV.** A flag's CLV compares its price with the devigged Pinnacle close. That price
+could be hours old when the flag appeared. Next to it we now publish realizable CLV: the first
+price the same bookmaker quoted on the same selection after the flag was recorded, within 60
+minutes and before kick-off, against the same close. Flags with no such quote are left out and
+the coverage is reported. After the repair (95% intervals):
+- backtest flags: CLV at signal +1.85% (±0.27, n=3,199); realizable +0.79% (±0.54), coverage
+  932 flags (29%);
+- live flags since 26 September: +0.50% at signal (n=16); realizable −0.07% (n=6) — too few to read;
+- live Value Alerts (all candidates): +1.68% at signal (n=54); realizable +0.48% (n=21).
+Most of the backtest's CLV at signal came from prices that did not survive the next quote.
+
+**Flag rule v2** (from 2026-09-30 18:09 UTC). Exchange prices (Betfair Exchange, Matchbook) are
+no longer treated as a soft bookmaker's best price: in the backtest they had CLV −0.32% (±0.65,
+n=550) even before commission, against +2.29% (±0.30, n=2,649) at soft bookmakers. A flag now
+needs a soft price and a Pinnacle price seen within the last 90 minutes. Flags recorded earlier
+keep their rule (`flag-v1`); new ones are `flag-v2`. Value Alerts become `va-v2` (Betfair
+Exchange also excluded). A gap seen only on older prices is shown as "not re-checked", not as
+value and not as expired.
+
+**AutoBet.** TIPS-EXP-003 is closed as recorded (4 settled bets): the rule change would have
+altered its trigger mid-test. TIPS-EXP-005 is registered with the new trigger (`TIPS-EXP-005.md`,
+SHA-256 a1ece343cecdf81b055a34e385faf401603a82a2f0bf33f40155baa13950fb05).
+
 ## 2026-09-30 (erratum) — the 14 "late" predictions were logged before kick-off; void withdrawn
 
 The entry below was wrong about the 14 predictions. Until 27 July 2026 our pipeline stored
