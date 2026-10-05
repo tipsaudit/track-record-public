@@ -3,6 +3,28 @@
 Changes we made on purpose to published data, newest first. Every earlier snapshot stays in the
 Git history, so each change below can be checked by comparing the snapshots it names.
 
+## 2026-10-05 — TIPS-EXP-006 registered; how TIPS-EXP-005 actually executes
+
+**TIPS-EXP-006 registered** (`TIPS-EXP-006.md`, SHA-256
+7a5b74695fe5fdb0a5b838cdf707df6e4f8ecc354dcabd813c0cdec2ec85e492). A paper test of the public
+value flags (rule flag-v2) at the soft bookmaker's own price, from 2026-10-05 07:20 UTC, decided at
+300 takeable flags or on 2026-12-31. It runs in parallel with TIPS-EXP-005, which is unchanged.
+
+**TIPS-EXP-005, two executor behaviours its spec does not state.** Both have applied since its first
+day and stay unchanged until it ends, so its rules do not change mid-test:
+- between 2.5 and 3 hours before kick-off the executor requires 2 percentage points more edge than
+  rule 4 states (a setting inherited from TIPS-EXP-003's executor);
+- the half-Kelly stake (rule 5) is computed from the soft-bookmaker gap and price that triggered the
+  signal, not from the Betfair edge at execution.
+
+**Daily exposure cap.** The 20%-per-day cap compared days in server time (UTC+3) instead of UTC
+until today; it now uses UTC days. No TIPS-EXP-005 bet was affected: its largest daily exposure so
+far is 22 units against a cap of 200.
+
+**Strategy Board.** From 30 September to 5 October the public Strategy Board and the admin summary
+still showed TIPS-EXP-003 instead of the running TIPS-EXP-005. Fixed; the AutoBet page itself was
+correct. Returns there are now shown only from 100 settled bets, as everywhere else.
+
 ## 2026-09-30 — backtest repaired, realizable CLV published, flag rule v2, TIPS-EXP-005
 
 **Backtest repaired.** The reconstruction of value flags before 26 September 2026 had two
