@@ -1,4 +1,22 @@
-# TipsAudit — Public Track Record
+# TipsAudit — football predictions dataset with bookmaker odds, closing lines and margins
+
+Free, open football (soccer) data measured from live bookmaker prices, under CC-BY-4.0:
+
+- **[`datasets/tipsaudit-predictions-all.csv`](datasets/tipsaudit-predictions-all.csv)** — every 1X2
+  prediction TipsAudit logged before kick-off since June 2026, one row per match: margin-free
+  (devigged) fair probabilities, the Pinnacle price recorded for the prediction and the **closing
+  line**, the best soft-bookmaker price, closing line value (CLV), the result, and the measured
+  bookmaker margin on the match. Columns and caveats: [`datasets/README.md`](datasets/README.md).
+  Regenerated monthly.
+- **`data/margins-<date>.json`** — the daily bookmaker-margin index: the 1X2 overround of ~35
+  bookmakers, overall and per league.
+- **`data/track-<UTC>.json`** — daily, append-only snapshots of the public track record, described
+  below.
+
+Live versions: https://tipsaudit.com/data (CSV) · https://tipsaudit.com/api (JSON API, no key) ·
+https://tipsaudit.com/bookmaker-margins (margin index).
+
+## Public track record
 
 Daily, append-only snapshots of the TipsAudit prediction track record, published once a day at
 04:40 UTC. A row is timestamped here before kick-off only if a snapshot was taken between its
