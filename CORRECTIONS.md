@@ -3,6 +3,16 @@
 Changes we made on purpose to published data, newest first. Every earlier snapshot stays in the
 Git history, so each change below can be checked by comparing the snapshots it names.
 
+## 2026-10-09 — TIPS-EXP-007 registered
+
+**TIPS-EXP-007 registered** (`TIPS-EXP-007.md`, SHA-256
+fcc30e8b5f02a236a588dee42e858023c274420a8c4a3d27104c2c33771675e2). A paper test of value flags on
+goal markets (over/under on half-goal lines and both teams to score): soft-bookmaker prices 5% to
+12% above Pinnacle's devigged price on the same line, one flag per match, measured by closing line
+value against the devigged Pinnacle close. Flags count from the timestamp of this commit; decided
+on the first 300 flags with a close or on 2027-03-31. Flags are listed only after kick-off. It runs
+in parallel with TIPS-EXP-005 and TIPS-EXP-006, which are unchanged.
+
 ## 2026-10-05 — TIPS-EXP-006 registered; how TIPS-EXP-005 actually executes
 
 **TIPS-EXP-006 registered** (`TIPS-EXP-006.md`, SHA-256
