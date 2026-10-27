@@ -31,11 +31,12 @@ auditable. `manifest.csv` lists the SHA-256 of every snapshot, and each snapshot
 [OpenTimestamps](https://opentimestamps.org) when it is published (`.ots`). A new proof is
 pending: it holds the calendar servers' receipts, not yet a Bitcoin attestation. A weekly commit
 ("upgrade OpenTimestamps proofs") adds the Bitcoin attestation to the proofs whose block has
-confirmed, so the newest proofs in `data/` are usually still pending. The proofs next to
-`TIPS-EXP-*.md` and `CORRECTIONS.md` are kept as submitted; `ots upgrade` completes them.
+confirmed, so the newest proofs are usually still pending. Since 18 October 2026 the same weekly
+upgrade also covers the proofs next to `TIPS-EXP-*.md` and `CORRECTIONS.md`.
 
-External independent verification has been active since 20 June 2026. Earlier predictions are
-preserved in the internal ledger but were not externally timestamped before kick-off.
+Publication here began on 20 June 2026: from that day each snapshot is committed to this public
+repository and submitted to OpenTimestamps. Predictions logged earlier are kept in the internal
+ledger but were not timestamped outside it before kick-off.
 
 ## Verify a snapshot
 
@@ -72,9 +73,13 @@ describes the corrections we announced.
 - `margins-<date>.json` — the bookmaker-margin index published that day (30-day window, per
   league). The number of bookmakers varies from day to day and includes betting exchanges; from
   5 September 2026 each entry has a `type` (`soft`, `exchange` or `etalon`), but until
-  9 October 2026 the exchanges `Betfair` and `Matchbook` were typed `soft`.
+  9 October 2026 the exchanges `Betfair` and `Matchbook` were typed `soft`. Up to the file of
+  15 October 2026 the `Betfair` entry (later `Betfair Exchange (EU)`) also held Betfair Sportsbook
+  prices from a second data feed, so its margin (between 5.4% and 9.0%, depending on the day) is not an exchange's; from 16 October
+  2026 it holds exchange prices only (see `CORRECTIONS.md`).
 - `TIPS-EXP-*.md` (+ `.ots`, in the repository root) — frozen specifications of pre-registered
-  forward experiments.
+  forward experiments, plus `TIPS-EXP-002-AUTOPSY.md`, the public post-mortem that rule 7 of TIPS-EXP-002
+  required.
 
 ## Monthly checkpoints
 

@@ -30,9 +30,12 @@ https://tipsaudit.com/methodology · Calibration: https://tipsaudit.com/calibrat
   price then, the first price quoted after logging and before kick-off, which could be written in
   after the match. It is not necessarily Pinnacle's opening price. `fair_prob_*` removes the margin
   from these prices (proportionally for rows logged before 18 July 2026, by the power method after).
-- `best_soft_*` / `best_soft_book_*` include two betting exchanges: Betfair Exchange (written
-  `Betfair`) and Matchbook. The same bookmaker can appear under two spellings from two data feeds
-  (e.g. `Marathonbet` and `Marathon Bet`). For rows logged before 21 September 2026 it is the highest price seen at
+- `best_soft_*` / `best_soft_book_*` include betting exchanges. `Matchbook` is an exchange.
+  `Betfair` is not one venue: until 15 October 2026 one of our two data feeds stored Betfair
+  Sportsbook prices under the Betfair Exchange name, so for rows logged up to that date `Betfair`
+  mixes Betfair Exchange and Betfair Sportsbook prices and the file does not say which (see
+  `CORRECTIONS.md`). The same bookmaker can appear under two spellings from two data feeds
+  (e.g. `Marathonbet` and `Marathon Bet`). For rows logged before 21 September 2026 `best_soft_*` is the highest price seen at
   any time before logging, not necessarily one available at that moment.
 - `market_margin_min_pct`, `market_margin_avg_pct` and `books_priced` cover every bookmaker priced
   on the match, including Pinnacle and betting exchanges. The minimum usually comes from an exchange

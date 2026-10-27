@@ -1,7 +1,23 @@
 # Corrections
 
-Changes we made on purpose to published data, newest first. Every earlier snapshot stays in the
-Git history, so each change below can be checked by comparing the snapshots it names.
+Corrections we announced, newest first. Timestamped snapshots are never overwritten and the Git
+history shows any difference between them, so each change below can be checked by comparing the
+snapshots it names.
+
+## 2026-10-27 — "Betfair" prices from two feeds (repaired on 2026-10-15)
+
+Until 15 October 2026 one of our odds feeds stored Betfair Sportsbook prices under our Betfair
+Exchange entry (named `Betfair` in the margin files). On that day we moved them (103,298 price rows on 4,159 matches) to a separate
+Betfair Sportsbook entry and recomputed the bookmaker margins of the matches involved. What it
+changes in material we had published:
+- In the flag rule v2 note (2026-09-30, below), 28 of the 550 backtest flags counted as
+  exchange-priced were Betfair Sportsbook prices. Without them, exchange-priced flags had CLV
+  −0.36% (±0.67, n=522), against −0.32% (±0.65, n=550) as published. The conclusion is unchanged.
+- In the monthly CSV, `best_soft_*` values named `Betfair` mix Betfair Exchange and Betfair
+  Sportsbook prices for rows logged up to 15 October 2026 (see `datasets/README.md`).
+- In the daily margin files up to 15 October 2026, the `Betfair` entry (later
+  `Betfair Exchange (EU)`) held both, so its margin (between 5.4% and 9.0%, depending on the day) was not an exchange's. From
+  16 October 2026 it holds exchange prices only.
 
 ## 2026-10-09 — TIPS-EXP-007 registered
 
@@ -135,5 +151,6 @@ replay`). This is a backtest, not a record of what the site showed at the time. 
 since it was first published (snapshot 2026-09-27T04-40-01Z). Flags recorded live, when the site
 shows them, start on 26 September 2026 (`value_origin = live`): the first flag on each match is
 recorded, with its seal, before kick-off (`value_recorded_at_utc`). The seal appears in the public
-export once the match's prediction row is published, and this log anchors it externally only when a
-daily snapshot (04:40 UTC) falls between the recording and kick-off.
+export once the match's prediction row is published, and this log timestamps it externally only when
+a daily snapshot (07:40 Bucharest time: 04:40 UTC in summer time, 05:40 UTC in winter) falls between
+the recording and kick-off.
