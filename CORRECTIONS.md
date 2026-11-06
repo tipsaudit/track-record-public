@@ -4,6 +4,10 @@ Corrections we announced, newest first. Timestamped snapshots are never overwrit
 history shows any difference between them, so each change below can be checked by comparing the
 snapshots it names.
 
+## 2026-11-06 — two articles showed a publication date before the site existed
+
+Our first two articles, "What is Closing Line Value (and why it's the only number that matters)" and "Why most tipsters hide their losses", showed 20 and 27 May 2026 as their publication date, although the domain tipsaudit.com was registered on 7 June 2026; both first went online on 8 June 2026, the date they now show. This correction changes only the date shown; it does not touch the articles' text.
+
 ## 2026-11-06 — wrong stored results and swapped home/away: what we repaired and what moved
 
 27 matches held a wrong score, 4 matches decided after extra time had the 1X2 of the score after extra time, 11 predictions had home and away swapped after we logged them, and one prediction was settled on a match it was not logged for. We repaired all of it on 6 November 2026. In all, 132 matches changed their stored result: 27 with a wrong score, 4 with the 1X2 after extra time, 99 with no score, one interrupted and one not yet played; on 3 more only the team IDs changed. The return of the live value flags, our live record, goes down from +2.0% to +1.8% (95% interval [−3.5; +7.2], which includes zero): on Macarthur – Western Sydney Wanderers (31 October 2026) we had stored 0–1, the final score is 0–0, and a live flag at 2.90 counted as won is lost. All but 2 of the 21,051 results we hold since 1 June 2026 have now been compared with a second read; the feed no longer returns those 2, and nothing is settled on them. The last reads, on 5 November 2026, added 7 corrections: Macarthur – Western Sydney Wanderers (0–1 to 0–0), Partick – Stenhousemuir (4–0 to 3–0) and Atvidabergs FF – Utsikten (no result, now 1–2), and the 4 after extra time.
