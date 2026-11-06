@@ -34,6 +34,14 @@ pending: it holds the calendar servers' receipts, not yet a Bitcoin attestation.
 confirmed, so the newest proofs are usually still pending. Since 18 October 2026 the same weekly
 upgrade also covers the proofs next to `TIPS-EXP-*.md` and `CORRECTIONS.md`.
 
+Each row also carries `teams_reversed_after_logging`: 1 means the fixture data swapped home and
+away after the prediction was logged, and the row stays in the logged order (names, probabilities,
+prices, result), so its `home` is not the team that played at home. See `CORRECTIONS.md` (2026-11-05).
+
+`void_reason` is set on a void prediction: its `result` is empty and `prediction_won` is 0, but it is
+not a loss and it counts in no rate, return or CLV. Snapshots from before that correction do not have
+the column; there, a settled row with an empty `result` is a void row.
+
 Publication here began on 20 June 2026: from that day each snapshot is committed to this public
 repository and submitted to OpenTimestamps. Predictions logged earlier are kept in the internal
 ledger but were not timestamped outside it before kick-off.

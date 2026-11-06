@@ -10,7 +10,8 @@ each match. Regenerated monthly.
 Columns: id, kickoff_utc, league, country, home, away, result, void_reason,
 fair_prob_home/draw/away, pin_open_*, pin_close_*, best_soft_*, best_soft_book_*,
 prediction_pick, prediction_odds_taken, prediction_closing_odds, prediction_clv_pct,
-prediction_won, market_margin_min_pct, market_margin_avg_pct, books_priced, record_hash.
+prediction_won, market_margin_min_pct, market_margin_avg_pct, books_priced, record_hash,
+teams_reversed_after_logging.
 (`*` = `_home`, `_draw`, `_away`.)
 
 License: CC-BY-4.0 (attribution: https://tipsaudit.com). Methodology:
@@ -37,6 +38,9 @@ https://tipsaudit.com/methodology · Calibration: https://tipsaudit.com/calibrat
   `CORRECTIONS.md`). The same bookmaker can appear under two spellings from two data feeds
   (e.g. `Marathonbet` and `Marathon Bet`). For rows logged before 21 September 2026 `best_soft_*` is the highest price seen at
   any time before logging, not necessarily one available at that moment.
+- `teams_reversed_after_logging` = 1 means the fixture data swapped home and away after the
+  prediction was logged. The row stays in the logged order (`home`, `away`, probabilities, prices,
+  `result`), so its `home` is not the team that played at home. See `CORRECTIONS.md` (2026-11-05).
 - `market_margin_min_pct`, `market_margin_avg_pct` and `books_priced` cover every bookmaker priced
   on the match, including Pinnacle and betting exchanges. The minimum usually comes from an exchange
   or Pinnacle and can be slightly negative; it is not the margin of the cheapest soft bookmaker.
